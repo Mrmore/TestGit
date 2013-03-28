@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CF55446-F084-4267-A195-77BB2DDEF4C3}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RenrenWin8RadioUI</RootNamespace>
+    <AssemblyName>RenrenWin8RadioUI</AssemblyName>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>RenrenWin8RadioUI_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>B16030265E50D46615A39090D390722A6744FAFA</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="DataModel\ConstValue.cs" />
+    <Compile Include="DataModel\LyricsData\Lyrics.cs" />
+    <Compile Include="DataModel\LyricsData\LyricsItem.cs" />
+    <Compile Include="DataModel\LyricsData\LyricsResult.cs" />
+    <Compile Include="DataModel\RadioItem.cs" />
+    <Compile Include="DataModel\RadioItemForUI.cs" />
+    <Compile Include="Helper\Animation\AnimationBase.cs" />
+    <Compile Include="Helper\Animation\MoveAnimation.cs" />
+    <Compile Include="Helper\Animation\ScaleAnimation.cs" />
+    <Compile Include="Helper\Downloader\DownloaderAdaptor.cs" />
+    <Compile Include="Helper\Downloader\IDownloader.cs" />
+    <Compile Include="Helper\Downloader\ImageDownloader.cs" />
+    <Compile Include="Helper\Downloader\StorageDownloader.cs" />
+    <Compile Include="Helper\Downloader\StreamDownloader.cs" />
+    <Compile Include="Helper\ExtensionMethods.cs" />
+    <Compile Include="Helper\LiveTile\AppLiveTile.cs" />
+    <Compile Include="Helper\LiveTile\LiveTileManager.cs" />
+    <Compile Include="Helper\LiveTile\SecondaryLiveTile.cs" />
+    <Compile Include="Helper\LockScreenBackground\LockScreenBackgroundHelper.cs" />
+    <Compile Include="Helper\LyricsHelper\LyricsHelper.cs" />
+    <Compile Include="Helper\MicrosoftStreamExtensions.cs" />
+    <Compile Include="Helper\LiveTile\ILiveTile.cs" />
+    <Compile Include="Helper\Notifications\BadgeContent.cs" />
+    <Compile Include="Helper\Notifications\Common.cs" />
+    <Compile Include="Helper\Notifications\ContentInterfaces.cs" />
+    <Compile Include="Helper\Notifications\NotificationChannelHelper.cs" />
+    <Compile Include="Helper\Notifications\NotificatoinWrapper.cs" />
+    <Compile Include="Helper\Notifications\Pin2Start.cs" />
+    <Compile Include="Helper\Notifications\TileContent.cs" />
+    <Compile Include="Helper\Notifications\ToastContent.cs" />
+    <Compile Include="Helper\SystemSettingHelper.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LyricsData.cs" />
+    <Compile Include="Model\PropertyChangedBase.cs" />
+    <Compile Include="Model\UserInfo.cs" />
+    <Compile Include="Model\UserSetting.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ItemLine.xaml.cs">
+      <DependentUpon>ItemLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RadioCoverUC.xaml.cs">
+      <DependentUpon>RadioCoverUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RadioList.xaml.cs">
+      <DependentUpon>RadioList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RadioPalyUserControl.xaml.cs">
+      <DependentUpon>RadioPalyUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SettingFlyout.xaml.cs">
+      <DependentUpon>SettingFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Notification\NotificationHelper.cs" />
+    <Compile Include="Util\Notification\NotificationSound.cs" />
+    <Compile Include="ViewModel\AlbumListViewModel.cs" />
+    <Compile Include="ViewModel\AlbumViewModel.cs" />
+    <Compile Include="ViewModel\BlogCommentsViewModel.cs" />
+    <Compile Include="ViewModel\BlogPageViewModel.cs" />
+    <Compile Include="ViewModel\ForUI\RadioListViewModel.cs" />
+    <Compile Include="ViewModel\ForUI\SearchVideoViewModel.cs" />
+    <Compile Include="ViewModel\FriendsViewModel.cs" />
+    <Compile Include="ViewModel\LatestVisistorViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ForUI\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\NewFeedsViewModel.cs" />
+    <Compile Include="ViewModel\NewsViewModel.cs" />
+    <Compile Include="ViewModel\PhotoCommentsViewModel.cs" />
+    <Compile Include="ViewModel\PhotoViewModel.cs" />
+    <Compile Include="ViewModel\RadioHomeViewModel.cs" />
+    <Compile Include="ViewModel\RadioViewModel.cs" />
+    <Compile Include="ViewModel\SheetManagement.cs" />
+    <Compile Include="ViewModel\StatusCommentsViewModel.cs" />
+    <Compile Include="ViewModel\StatusViewModel.cs" />
+    <Compile Include="ViewModel\UserInfoList.cs" />
+    <Compile Include="ViewModel\UserInfoManagement.cs" />
+    <Compile Include="ViewModel\UserInfoViewModel.cs" />
+    <Compile Include="ViewModel\UserSettingListSave.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelFlyweight.cs" />
+    <Compile Include="ViewModel\ViewModelVisistor.cs" />
+    <Compile Include="View\Contracts\SearchResultsPage.xaml.cs">
+      <DependentUpon>SearchResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contracts\Share\Source\ShareSourceWrapper.cs" />
+    <Compile Include="View\RadioPage.xaml.cs">
+      <DependentUpon>RadioPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="RenrenWin8RadioUI_StoreKey.pfx" />
+    <None Include="RenrenWin8RadioUI_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\电台logo-24×24.png" />
+    <Content Include="Assets\电台logo-620×300.png" />
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\留声fm-30x30.png" />
+    <Content Include="Assets\留声fm-310x150.png" />
+    <Content Include="Common\ReadMe.txt" />
+    <Content Include="Helper\PlayTo\README.txt" />
+    <Content Include="Images\httpmusicstorerenrencomnewalbumndbcabcjpg.jpg" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Resources\background.png" />
+    <Content Include="Resources\bar.png" />
+    <Content Include="Resources\barbottom.png" />
+    <Content Include="Resources\cd-A.png" />
+    <Content Include="Resources\cd-B.png" />
+    <Content Include="Resources\cd\cd-default.png" />
+    <Content Include="Resources\cd\cd0.png" />
+    <Content Include="Resources\cd\cd108.png" />
+    <Content Include="Resources\cd\cd142.png" />
+    <Content Include="Resources\cd\cd259.png" />
+    <Content Include="Resources\cd\cd260.png" />
+    <Content Include="Resources\cd\cd261.png" />
+    <Content Include="Resources\cd\cd263.png" />
+    <Content Include="Resources\cd\cd264.png" />
+    <Content Include="Resources\cd\cd265.png" />
+    <Content Include="Resources\cd\cd266.png" />
+    <Content Include="Resources\cd\cd267.png" />
+    <Content Include="Resources\cd\cd288.png" />
+    <Content Include="Resources\cd\cd300.png" />
+    <Content Include="Resources\cd\cd337.png" />
+    <Content Include="Resources\cd\cd341.png" />
+    <Content Include="Resources\cd\cd345.png" />
+    <Content Include="Resources\cd\cd346.png" />
+    <Content Include="Resources\cd\cd349.png" />
+    <Content Include="Resources\cd\cd350.png" />
+    <Content Include="Resources\cd\cd353.png" />
+    <Content Include="Resources\cd\cd354.png" />
+    <Content Include="Resources\cd\cd361.png" />
+    <Content Include="Resources\cd\cd363.png" />
+    <Content Include="Resources\cd\cd365.png" />
+    <Content Include="Resources\cd\cd366.png" />
+    <Content Include="Resources\cd\cd367.png" />
+    <Content Include="Resources\cd\cd368.png" />
+    <Content Include="Resources\cd\cd369.png" />
+    <Content Include="Resources\cd\cd371.png" />
+    <Content Include="Resources\cd\cd372.png" />
+    <Content Include="Resources\cd\cd373.png" />
+    <Content Include="Resources\cd\cd377.png" />
+    <Content Include="Resources\cd\cd378.png" />
+    <Content Include="Resources\cd\cd379.png" />
+    <Content Include="Resources\cd\cd380.png" />
+    <Content Include="Resources\cd\cd381.png" />
+    <Content Include="Resources\cd\cd382.png" />
+    <Content Include="Resources\cd\cd383.png" />
+    <Content Include="Resources\cd\cd384.png" />
+    <Content Include="Resources\cd\cd385.png" />
+    <Content Include="Resources\cd\cd386.png" />
+    <Content Include="Resources\cd\cd389.png" />
+    <Content Include="Resources\cd\cd393.png" />
+    <Content Include="Resources\cd\cd511.png" />
+    <Content Include="Resources\changeUser.png" />
+    <Content Include="Resources\default.png" />
+    <Content Include="Resources\defaultUser.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\Icon\heart.png" />
+    <Content Include="Resources\Icon\heart_empty.png" />
+    <Content Include="Resources\Icon\home.png" />
+    <Content Include="Resources\Icon\info.png" />
+    <Content Include="Resources\Icon\on-off.png" />
+    <Content Include="Resources\Icon\playback_next.png" />
+    <Content Include="Resources\Icon\playback_prev.png" />
+    <Content Include="Resources\Icon\Power.png" />
+    <Content Include="Resources\Icon\rnd_br_first.png" />
+    <Content Include="Resources\Icon\rnd_br_last.png" />
+    <Content Include="Resources\Icon\sq_br_first.png" />
+    <Content Include="Resources\Icon\sq_br_last.png" />
+    <Content Include="Resources\Icon\star_fav.png" />
+    <Content Include="Resources\Icon\star_fav_empty.png" />
+    <Content Include="Resources\Icon\user.png" />
+    <Content Include="Resources\Images\demo.jpg" />
+    <Content Include="Resources\Images\image1.png" />
+    <Content Include="Resources\Images\image11.png" />
+    <Content Include="Resources\Images\image3.png" />
+    <Content Include="Resources\Images\image33.png" />
+    <Content Include="Resources\item-1.png" />
+    <Content Include="Resources\likenormal.png" />
+    <Content Include="Resources\LoginLogo.png" />
+    <Content Include="Resources\newlikeliked.png" />
+    <Content Include="Resources\next.png" />
+    <Content Include="Resources\play.png" />
+    <Content Include="Resources\radio-bg.png" />
+    <Content Include="Resources\radios\radio-defalut.png" />
+    <Content Include="Resources\radios\radio0.png" />
+    <Content Include="Resources\radios\radio108.png" />
+    <Content Include="Resources\radios\radio142.png" />
+    <Content Include="Resources\radios\radio259.png" />
+    <Content Include="Resources\radios\radio260.png" />
+    <Content Include="Resources\radios\radio261.png" />
+    <Content Include="Resources\radios\radio263.png" />
+    <Content Include="Resources\radios\radio264.png" />
+    <Content Include="Resources\radios\radio265.png" />
+    <Content Include="Resources\radios\radio266.png" />
+    <Content Include="Resources\radios\radio267.png" />
+    <Content Include="Resources\radios\radio288.png" />
+    <Content Include="Resources\radios\radio300.png" />
+    <Content Include="Resources\radios\radio337.png" />
+    <Content Include="Resources\radios\radio341.png" />
+    <Content Include="Resources\radios\radio345.png" />
+    <Content Include="Resources\radios\radio346.png" />
+    <Content Include="Resources\radios\radio349.png" />
+    <Content Include="Resources\radios\radio350.png" />
+    <Content Include="Resources\radios\radio353.png" />
+    <Content Include="Resources\radios\radio354.png" />
+    <Content Include="Resources\radios\radio361.png" />
+    <Content Include="Resources\radios\radio363.png" />
+    <Content Include="Resources\radios\radio-open.png" />
+    <Content Include="Resources\radios\radio365.png" />
+    <Content Include="Resources\radios\radio366.png" />
+    <Content Include="Resources\radios\radio367.png" />
+    <Content Include="Resources\radios\radio368.png" />
+    <Content Include="Resources\radios\radio369.png" />
+    <Content Include="Resources\radios\radio371.png" />
+    <Content Include="Resources\radios\radio372.png" />
+    <Content Include="Resources\radios\radio373.png" />
+    <Content Include="Resources\radios\radio377.png" />
+    <Content Include="Resources\radios\radio378.png" />
+    <Content Include="Resources\radios\radio379.png" />
+    <Content Include="Resources\radios\radio380.png" />
+    <Content Include="Resources\radios\radio381.png" />
+    <Content Include="Resources\radios\radio382.png" />
+    <Content Include="Resources\radios\radio383.png" />
+    <Content Include="Resources\radios\radio384.png" />
+    <Content Include="Resources\radios\radio385.png" />
+    <Content Include="Resources\radios\radio386.png" />
+    <Content Include="Resources\radios\radio389.png" />
+    <Content Include="Resources\radios\radio393.png" />
+    <Content Include="Resources\radios\radio511.png" />
+    <Content Include="Resources\setting.png" />
+    <Content Include="Resources\share.png" />
+    <Content Include="Resources\sharebtn.png" />
+    <Content Include="Resources\stop.png" />
+    <Content Include="Resources\CD_BK.png" />
+    <Content Include="Resources\title.png" />
+    <Content Include="Resources\WaveformFrequency\Waveform1.png" />
+    <Content Include="Resources\WaveformFrequency\Waveform2.png" />
+    <Content Include="Resources\WaveformFrequency\Waveform3.png" />
+    <Content Include="Resources\WaveformFrequency\Waveform4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ItemLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RadioCoverUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\RadioList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RadioPalyUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SettingFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Contracts\SearchResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RadioPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackgroundTasks\BackgroundTasks.csproj">
+      <Project>{cc7fdf07-3c51-40db-8d21-99927a59b3c8}</Project>
+      <Name>BackgroundTasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightSensorLibrary\LightSensorLibrary.csproj">
+      <Project>{3a242fc3-6d34-4eb0-8498-20f9bc435f03}</Project>
+      <Name>LightSensorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.TimedText\Microsoft.TimedText.csproj">
+      <Project>{d1f1ea17-4a91-4f3b-a243-f2b41d6cbce6}</Project>
+      <Name>Microsoft.TimedText</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.VideoAdvertising\Microsoft.VideoAdvertising.csproj">
+      <Project>{f863edc6-2886-4d39-a578-89f4ff729d82}</Project>
+      <Name>Microsoft.VideoAdvertising</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.Xaml.Advertising\Microsoft.PlayerFramework.Xaml.Advertising.csproj">
+      <Project>{2e19fe19-9b06-416d-8ffc-c432d6285cb9}</Project>
+      <Name>Microsoft.PlayerFramework.Xaml.Advertising</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.Xaml.CaptionMarkers\Microsoft.PlayerFramework.Xaml.CaptionMarkers.csproj">
+      <Project>{46262466-50e8-4acb-bb8d-6973ae6d00dd}</Project>
+      <Name>Microsoft.PlayerFramework.Xaml.CaptionMarkers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.Xaml.TimedText\Microsoft.PlayerFramework.Xaml.TimedText.csproj">
+      <Project>{54fb8bf9-02df-490f-9837-0195afd3f1aa}</Project>
+      <Name>Microsoft.PlayerFramework.Xaml.TimedText</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaPlayerLibrary\Win8.Xaml\Microsoft.PlayerFramework.Xaml.csproj">
+      <Project>{81ae6f43-2ba7-4e89-8d7c-a78b152222bd}</Project>
+      <Name>Microsoft.PlayerFramework.Xaml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationsExtensions\NotificationsExtensions.csproj">
+      <Project>{5f0af0d0-2007-4499-ba0f-d44e2931cda6}</Project>
+      <Name>NotificationsExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RenRenWin83GSdk\RenRenWin83GSdk.csproj">
+      <Project>{9dd94e07-ade2-4d24-9668-6f39940a677d}</Project>
+      <Name>RenRenWin83GSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShakeGesturesWinRtLibrary\ShakeGesturesWinRtLibrary.csproj">
+      <Project>{8826bcbb-270f-4db5-885b-ab8aa5a8ef9d}</Project>
+      <Name>ShakeGesturesWinRtLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

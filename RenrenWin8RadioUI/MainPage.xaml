@@ -1,0 +1,51 @@
+﻿<Page x:Class="RenRenWin8Radio.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:RenrenWin8RadioUI.UserControls"
+    mc:Ignorable="d"    
+    d:DesignHeight="768" d:DesignWidth="1366">
+    
+    <Grid x:Name="LayoutRoot" Background="#FF0C0C0C">
+        <ScrollViewer x:Name="FullLayout" ZoomMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden"
+                      VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled">
+            <StackPanel Orientation="Horizontal">
+                <uc:RadioPalyUserControl x:Name="Player" Width="1130"/>
+                <uc:RadioList x:Name="AllRadioList" RadioItemClicked="RadioList_RadioItemClicked"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <Image x:Name="logo" Source="Resources/title.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="None"/>
+        <ProgressBar x:Name="Loading" VerticalAlignment="Top" IsIndeterminate="True"/>
+        <Popup x:Name="login" IsOpen="False">
+            <Grid x:Name="LoginContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Grid.Row="0" Grid.RowSpan="2" Opacity="0.8"/>
+                <uc:Login Height="260" Grid.Row="1" VerticalAlignment="Top" LgoinEvent="loginEvent"/>
+            </Grid>
+        </Popup>
+    </Grid>
+    <Page.BottomAppBar>
+        <AppBar x:Name="BottomBar" Height="90" HorizontalAlignment="Stretch" BorderThickness="0" Padding="0" 
+                Background="Black" Loaded="TheTopBar_Loaded">
+            <Grid>
+                <Button x:Name="fmBtn" Style="{StaticResource SwitchAppBarButtonStyle}" Click="fmBtn_Click"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="pinBtn" Style="{StaticResource PinAppBarButtonStyle}" Click="pinBtn_Click" Width="80"/>
+                    <Button x:Name="unpinBtn" Style="{StaticResource UnPinAppBarButtonStyle}" Visibility="Collapsed" Click="unpinBtn_Click" Width="80"/>
+                    <Button x:Name="share" Style="{StaticResource AppBarButtonStyle}" AutomationProperties.Name="分享" Click="shareBtn_Click" Width="80">
+                        <Grid Width="40" Height="40">
+                            <Image Source="/Resources/share.png" Margin="-2,0,0,0"
+                                   VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Click="refresh_Click" Width="80"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+</Page>

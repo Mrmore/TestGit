@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="RenrenWin8RadioUI.UserControls.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RenrenWin8RadioUI.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="1366" SizeChanged="UserControl_SizeChanged">
+    
+    <Grid Background="#FF143170">
+        <Grid x:Name="content" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="-6,0,0,15" Text="使用人人网帐号登录" 
+                       FontFamily="{StaticResource ContentFontFamily}" FontSize="24"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" x:Uid="Username"  FontSize="16"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,0,0" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="UsernameTbx" IsSpellCheckEnabled="False"
+                     HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20" Margin="10,0,0,0" 
+                     FontFamily="{StaticResource ContentFontFamily}" TextChanged="UsernameTbx_TextChanged"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" x:Uid="Password" FontSize="16"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,10,0,0"/>
+            <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="PasswordTbx"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20" Margin="10,10,0,0"
+                         FontFamily="{StaticResource ContentFontFamily}" PasswordChanged="PasswordTbx_PasswordChanged"
+                         KeyUp="PasswordTbx_KeyUp"/>
+
+            <Grid x:Name="AssertKey" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="AssertImage" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0"
+                           Margin="0,0,10,0" />
+                <TextBox x:Name="AssertText" IsSpellCheckEnabled="False"
+                     HorizontalAlignment="Right" VerticalAlignment="Top" Height="20" Grid.Column="1"
+                     FontFamily="{StaticResource ContentFontFamily}" TextChanged="AssertText_TextChanged_1"/>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="ErrorTbk" Foreground="Red" TextTrimming="WordEllipsis" TextWrapping="Wrap"
+                    FontFamily="{StaticResource ContentFontFamily}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                           Margin="0,0,10,0" />
+                <ProgressBar x:Name="ProgressBar" Visibility="Collapsed" IsIndeterminate="True" Margin="0,0,10,0" />
+                <Button Grid.Column="1"  x:Name="LoginBtn" Width="90" Height="30" Style="{StaticResource Common_Default_ButtonStyle}"
+                    FontFamily="{StaticResource ContentFontFamily}" Background="#0080ff" Content="登录" Foreground="White" Click="LoginBtn_Click"/>
+                <Button Grid.Column="2" x:Name="CancelBtn" Style="{StaticResource Common_Default_ButtonStyle}" Content="取消" Foreground="White"
+                    Margin="10,0,0,0" Width="90" Height="30" FontFamily="{StaticResource ContentFontFamily}" Background="#FF495561" Click="CancelBtn_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

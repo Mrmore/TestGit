@@ -1,0 +1,353 @@
+﻿<UserControl
+    x:Class="RenrenWin8RadioUI.UserControls.RadioPalyUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RenrenWin8RadioUI.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:PlayerFramework="using:Microsoft.PlayerFramework"
+    mc:Ignorable="d"
+    d:DesignHeight="768"
+    d:DesignWidth="1130" Loaded="UserControl_Loaded" Unloaded="RadioPalyUserControl_Unloaded">
+    
+    <UserControl.Resources>
+        <!--歌曲封面先关闭-->
+        <Storyboard x:Name="ImageClosedSb">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="imageCover">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!--歌曲封面在现实-->
+        <Storyboard x:Name="ImageOpenSb">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="imageCover">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="CDContent" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="CDimage">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+        <Storyboard x:Name="MusicSb" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="imageA">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="imageB">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="WaveformSb" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Waveform1">
+        		<DiscreteObjectKeyFrame KeyTime="0">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Visible</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Collapsed</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Visible</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        	</ObjectAnimationUsingKeyFrames>   
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Waveform2">
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Visible</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Collapsed</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        	</ObjectAnimationUsingKeyFrames>
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Waveform3">
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Visible</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Collapsed</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        	</ObjectAnimationUsingKeyFrames>            
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Waveform4">
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Visible</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+        			<DiscreteObjectKeyFrame.Value>
+        				<Visibility>Collapsed</Visibility>
+        			</DiscreteObjectKeyFrame.Value>
+        		</DiscreteObjectKeyFrame>
+        	</ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="playCD">
+            <DoubleAnimation Duration="0:0:0.5" BeginTime="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                             Storyboard.TargetName="image1" d:IsOptimized="True">
+                <!--<DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>-->
+            </DoubleAnimation>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="play">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="StopCD">
+            <DoubleAnimation Duration="0:0:0.5" BeginTime="0:0:0.5" To="-22" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                             Storyboard.TargetName="image1" d:IsOptimized="True">
+                <!--<DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>-->
+            </DoubleAnimation>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="Paused">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <DataTemplate x:Key="LyricTemplate">
+            <TextBlock Width="270" TextAlignment="Center" FontWeight="Normal" TextWrapping="Wrap" Foreground="{Binding TextForeground}"
+                       FontSize="{Binding FontSize}" Margin="0" Text="{Binding LyricsText}" LineStackingStrategy="BlockLineHeight" LineHeight="30" 
+                       FontFamily="Microsoft YaHei">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Grid x:Name="layoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="column0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,20">            
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,30,0,0" Width="700" Height="700">
+                <Image Source="/Resources/CD_BK.png" Stretch="Uniform" />
+                <Image x:Name="imageA" Source="/Resources/cd-A.png" Stretch="Uniform">
+                </Image>
+                <Image x:Name="imageB" Source="/Resources/cd-B.png" Visibility="Collapsed" Stretch="Uniform" >
+                </Image>
+
+                <Image x:Name="CDimage" Margin="10" Stretch="Uniform" Width="200" Height="200">
+                    <Image.Projection>
+                        <PlaneProjection/>
+                    </Image.Projection>
+                </Image>
+            </Grid>
+
+
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0">
+                <Image x:Name="image1bottom"  Source="/Resources/barbottom.png" Stretch="Uniform" Width="350"/>
+                <Image x:Name="image1" Source="/Resources/bar.png" Stretch="Uniform" Width="350"
+                       Margin="-9.065,71.861,9.065,-73.861" RenderTransformOrigin="0.765,0.123" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.Projection>
+                        <PlaneProjection CenterOfRotationX="0.7" CenterOfRotationY="0"/>
+                    </Image.Projection>
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="-22" TranslateX="8.536" TranslateY="-72.066"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Button x:Name="play" Style="{StaticResource Common_Circle_Big_ButtonStyle}" Content="/Resources/play.png"
+                        Width="62" Height="62" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,52,50,0" 
+                        Click="play_Click">
+                    <Button.Projection>
+                        <PlaneProjection CenterOfRotationX="0.5" CenterOfRotationY="-0.7"/>
+                    </Button.Projection>
+                </Button>
+                <Button x:Name="Paused" Style="{StaticResource Common_Circle_Big_ButtonStyle}" Visibility="Collapsed" 
+                        Content="/Resources/stop.png" Width="62" Height="62" Margin="0,52,50,0" Click="play_Click"
+                        HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Button.Projection>
+                        <PlaneProjection CenterOfRotationX="0.5" CenterOfRotationY="-0.7"/>
+                    </Button.Projection>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+
+        <!--歌词歌名播放器和音频波形,设置按钮-->
+        <Grid x:Name="gridSongInformation" Grid.Column="1" VerticalAlignment="Stretch"  Background="#9fffffff"
+                  HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="240"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <!--封面-->
+                    <Grid Width="220" Height="220" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"
+                      Margin="25,20,0,0">
+                        <Grid Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.Background>
+                                <ImageBrush x:Name="songImg" ImageSource="/Resources/default.png" AlignmentX="Center" AlignmentY="Center" Stretch="UniformToFill"/>
+                            </Grid.Background>
+                            <StackPanel x:Name="songDetail" Background="#7f000000" Height="60" VerticalAlignment="Bottom" Visibility="Collapsed">
+                                <TextBlock x:Name="songName" FontWeight="Normal" Margin="10,5,0,0" FontSize="21"
+                                       TextTrimming="WordEllipsis" FontFamily="{StaticResource ContentFontFamily}"/>
+                                <TextBlock x:Name="playerName" Margin="10,0,0,0" FontSize="16" 
+                                       TextTrimming="WordEllipsis" FontWeight="Normal" FontFamily="{StaticResource ContentFontFamily}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <!--波形-->
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,0">
+                        <Image x:Name="Waveform1" Width="30" Height="23.5" Stretch="Uniform" Source="/Resources/WaveformFrequency/Waveform1.png" Opacity="1.0" Visibility="Visible"/>
+                        <Image x:Name="Waveform2" Width="30" Height="23.5" Stretch="Uniform" Source="/Resources/WaveformFrequency/Waveform2.png" Opacity="1.0" Visibility="Collapsed"/>
+                        <Image x:Name="Waveform3" Width="30" Height="23.5" Stretch="Uniform" Source="/Resources/WaveformFrequency/Waveform3.png" Opacity="1.0" Visibility="Collapsed"/>
+                        <Image x:Name="Waveform4" Width="30" Height="23.5" Stretch="Uniform" Source="/Resources/WaveformFrequency/Waveform4.png" Opacity="1.0" Visibility="Collapsed"/>
+                    </Grid>
+                </StackPanel>
+                
+                <!--设置按钮-->
+                <Button x:Name="settingBtn" Style="{StaticResource SettingButtonStyle}" Content="/Resources/setting.png"
+                        Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="settingBtn_Click"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <!--IsScrubbingEnabled 控制能拖动时间线  IsInteractive 自动出现  AutoHide 自动隐藏-->
+                <PlayerFramework:MediaPlayer x:Name="mediaPlayer" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                                             AutoPlay="true" Margin="8,0,0,0" AutoHide="False" Background="Transparent"
+                                             IsTimelineVisible="True" IsTimeRemainingVisible="True" 
+                                             IsTimeElapsedVisible="False" Visibility="Visible" IsScrubbingEnabled="False"
+                                             IsInteractive="True"/>
+                
+                <StackPanel x:Name="optionButton" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0">
+                    <Button x:Name="share" Width="56" Height="56" Margin="25,0,0,0" Click="optionBtn_Click"
+                            Content="/Resources/sharebtn.png" Style="{StaticResource Common_Circle_ButtonStyle}"/>
+                    <Button x:Name="like" Width="56" Height="56" Margin="15,0,0,0" Click="optionBtn_Click"
+                            Content="/Resources/likenormal.png" Style="{StaticResource Common_Circle_ButtonStyle}"/>
+                    <Button x:Name="unlike" Width="56" Height="56" Margin="15,0,0,0" Visibility="Collapsed" Click="optionBtn_Click"
+                            Content="/Resources/newlikeliked.png" Style="{StaticResource Common_Circle_ButtonStyle}"/>
+                    <Button x:Name="next" Width="56" Height="56" Click="next_Click" Margin="15,0,0,0"
+                            Content="/Resources/next.png" Style="{StaticResource Common_Circle_ButtonStyle}"/>
+                    <Button x:Name="delete" Width="56" Height="56" Margin="15,0,0,0" Click="optionBtn_Click"
+                            Content="/Resources/delete.png" Style="{StaticResource Common_Circle_ButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Border x:Name="songTitleContainer" Background="#33FFFFFF" Height="40" Visibility="Collapsed" 
+                        VerticalAlignment="Top" Margin="0,20,0,20">
+                    <TextBlock x:Name="songTitle" TextAlignment="Center" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="#FFFFFF" 
+                                   FontSize="21" IsTextSelectionEnabled="False" VerticalAlignment="Center" Width="280"
+                                   LineStackingStrategy="BlockLineHeight" LineHeight="21" FontFamily="Microsoft YaHei"/>
+                </Border>
+
+                <!--<ListView x:Name="LyricList" Margin="25,60,25,0" ItemTemplate="{StaticResource LyricTemplate}" Width="320" VerticalAlignment="Stretch"
+                          SelectionMode="None" IsItemClickEnabled="False" ItemContainerStyle="{StaticResource LyricListViewItemStyle}"
+                          Style="{StaticResource LyricListViewStyle}" RenderTransformOrigin="0.5,0.5">
+                </ListView>-->
+                
+                <ScrollViewer x:Name="LyricScrollViewer" Margin="0,70,0,0" ZoomMode="Disabled"
+                            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" >
+                    <StackPanel x:Name="LyricPanel" Margin="25,0,25,0" Orientation="Vertical" VerticalAlignment="Stretch">
+                        <StackPanel.RenderTransform>
+                            <CompositeTransform/>
+                        </StackPanel.RenderTransform>
+                    </StackPanel>
+                </ScrollViewer>                
+
+                <Grid Background="#7f000000" Height="40" VerticalAlignment="Bottom">
+                    <Image x:Name="header" Width="40" Height="40" Source="/Resources/defaultUser.png" 
+                           Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="userName" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="未登录" FontSize="18"
+                               FontWeight="Normal" FontFamily="{StaticResource ContentFontFamily}"/>
+
+                    <Button x:Name="loginBtn" Width="40" Height="40" HorizontalAlignment="Right" Click="loginBtn_Click"
+                                     Style="{StaticResource Common_Default_ButtonStyle}" Margin="0,0,10,0">
+                        <Grid>
+                            <TextBlock FontFamily="{StaticResource ContentFontFamily}" FontSize="18" Text="登录" Foreground="#29abe2" FontWeight="Normal"/>
+                            <Rectangle Fill="#29abe2" Height="1" Width="36" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Button>
+
+                    <Button x:Name="logoutBtn" Width="40" Height="40" HorizontalAlignment="Right" Click="logoutBtn_Click" Visibility="Collapsed"
+                                     Style="{StaticResource Common_Default_ButtonStyle}" Margin="0,0,10,0">
+                        <Grid>
+                            <TextBlock FontFamily="{StaticResource ContentFontFamily}" FontSize="18" Text="注销" Foreground="#29abe2" FontWeight="Normal"/>
+                            <Rectangle Fill="#29abe2" Height="1" Width="36" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid  x:Name="column2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Rectangle Fill="#FFA67C52" Grid.Column="1" Width="10"/>
+        </Grid>
+    </Grid>
+</UserControl>

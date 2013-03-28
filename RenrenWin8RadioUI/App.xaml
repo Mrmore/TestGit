@@ -1,0 +1,1487 @@
+﻿<Application
+    x:Class="RenrenWin8RadioUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RenrenWin8RadioUI">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Styles that define common aspects of the platform look and feel
+                    Required by Visual Studio project and item templates
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <FontFamily x:Key="ContentFontFamily">Microsoft YaHei</FontFamily>
+            <FontFamily x:Key="SemiBoldContentFontFamily">Segoe UI SemiBold</FontFamily>
+            <FontFamily x:Key="SemilightContentFontFamily">Segoe UI Semilight</FontFamily>
+            <FontFamily x:Key="SymbolFontFamily">Segoe UI Symbol</FontFamily>
+            <FontFamily x:Key="LightContentFontFamily">Segoe UI Light</FontFamily>
+
+            <x:Double x:Key="ContentFontSize">14.667</x:Double>
+            <x:Double x:Key="TooltipContentFontSize">17.667</x:Double>
+            <x:Double x:Key="SmallContentFontSize">13.333</x:Double>
+            <x:Double x:Key="SemilightContentFontSize">14.667</x:Double>
+            <x:Double x:Key="CheckBoxContentFontSize">16</x:Double>
+            <x:Double x:Key="FontGlyphFontSize">16</x:Double>
+            <x:Double x:Key="ControlStrokeThickness">2</x:Double>
+            <x:Double x:Key="ListViewItemCheckmarkFontSize">20</x:Double>
+            <x:Double x:Key="HeaderMediumFontSize">26.667</x:Double>
+            <Thickness x:Key="ControlBorderThickness">2</Thickness>
+
+            <Color x:Key="ControlPressedTextColor">#FFFFFFFF</Color>
+            <Color x:Key="ControlDisabledTextColor">#7C212121</Color>
+            <Color x:Key="CheckBoxDisabledGlyphColor">#7C272727</Color>
+            <Color x:Key="RadioButtonDisabledGlyphColor">#842A2A2A</Color>
+            <Color x:Key="HyperlinkRestColor">#FF26A0DA</Color>
+            <Color x:Key="HyperlinkMouseOverColor">#FF3891B6</Color>
+            <Color x:Key="HyperlinkPressedTextColor">#FFFFFFFF</Color>
+            <Color x:Key="HyperlinkVisitedColor">#FF6DA2C0</Color>
+            <Color x:Key="HyperlinkDisabledColor">#FF707070</Color>
+            <Color x:Key="ScrollBarTrackColor">#91D5D5D5</Color>
+            <Color x:Key="ControlRestTextColor">#AA000000</Color>
+            <Color x:Key="ControlGlyphColor">#FF212121</Color>
+            <Color x:Key="ControlNormalFillColor">White</Color>
+            <Color x:Key="InputControlDisabledColor">#26000000</Color>
+            <Color x:Key="ScrollBarGlyphArrowPressedColor">White</Color>
+            <Color x:Key="TextBoxFocusFillColor">White</Color>
+            <Color x:Key="TextBoxMouseOverFillColor">#DDFFFFFF</Color>
+            <Color x:Key="TextBoxMouseOverStrokeColor">#70000000</Color>
+            <Color x:Key="TextBoxPressedGlyphColor">White</Color>
+            <Color x:Key="TextBoxDisabledColor">#7CFFFFFF</Color>
+            <Color x:Key="TextBoxDisabledFillColor">Transparent</Color>
+            <Color x:Key="TextBoxButtonHoverFillColor">#FFDEDEDE</Color>
+            <Color x:Key="ControlFocusColor">White</Color>
+            <Color x:Key="SelectedInlineBackgroundDisabledColor">#00FFFFFF</Color>
+
+            <Color x:Key="ToggleSwitchDisabledBrush">#1E000000</Color>
+            <Color x:Key="ToggleSwitchDisabledOuterBorderBrush">#33000000</Color>
+            <Color x:Key="ToggleSwitchDisabledInnerBorderBrush">#1E000000</Color>
+            <Color x:Key="ToggleSwitchDisabledKnobFillBrush">#FFA3A3A3</Color>
+
+            <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#B3B6B6B6"/>
+            <SolidColorBrush x:Key="TextBoxTextBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="TextBoxRestFillBrush" Color="#CCFFFFFF"/>
+            <SolidColorBrush x:Key="TextBoxRestBorderBrush" Color="#45000000"/>
+            <SolidColorBrush x:Key="TextBoxGlyphBrush" Color="#FF2A2A2A"/>
+            <SolidColorBrush x:Key="TextBoxRestStrokeBrush" Color="#45000000"/>
+            <SolidColorBrush x:Key="TextBoxFocusFillBrush" Color="White"/>
+            <SolidColorBrush x:Key="TextBoxFocusStrokeBrush" Color="#A3000000"/>
+            <SolidColorBrush x:Key="TextBoxGlyphHoverFillBrush" Color="#FFDEDEDE"/>
+            <SolidColorBrush x:Key="TextBoxGlyphPressedFillBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ControlHighlightBrush" Color="#FF26A0DA"/>
+            <SolidColorBrush x:Key="ControlNormalFillBrush" Color="White"/>
+            <SolidColorBrush x:Key="ControlForegroundBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ControlMouseOverFillBrush" Color="#D1CDCDCD"/>
+            <SolidColorBrush x:Key="ControlPressedFillBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ControlNormalStrokeBrush" Color="#B3B6B6B6"/>
+            <SolidColorBrush x:Key="ControlMouseOverStrokeBrush" Color="#D1CDCDCD"/>
+            <SolidColorBrush x:Key="ControlPressedStrokeBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ControlBorderBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ControlDisabledBrush" Color="#7C212121"/>
+            <SolidColorBrush x:Key="ControlDisabledFillBrush" Color="Transparent"/>
+            <SolidColorBrush x:Key="ControlTransparentFillBrush" Color="Transparent"/>
+            <SolidColorBrush x:Key="ControlGlyphBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="InputControlDisabledBrush" Color="#26000000"/>
+            <SolidColorBrush x:Key="InputControlDisabledFillBrush" Color="#7CCACACA"/>
+            <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="TooltipBorderBrush" Color="#7C6E6E6E"/>
+            <SolidColorBrush x:Key="TooltipForegroundBrush" Color="#FF707070"/>
+            <SolidColorBrush x:Key="HyperlinkRestColorBrush" Color="#FF26A0DA"/>
+            <SolidColorBrush x:Key="HyperlinkPressedFillBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ScrollIndicatorFillBrush" Color="#BFEDEDED"/>
+            <SolidColorBrush x:Key="ProgressBarFillBrush" Color="#FF369ACA"/>
+            <SolidColorBrush x:Key="ProgressBarTrackBrush" Color="#2B000000"/>
+            <SolidColorBrush x:Key="ScrollBarFaceBrush" Color="#DDC8C8C8"/>
+            <SolidColorBrush x:Key="ScrollBarShadowBrush" Color="#49555555"/>
+            <SolidColorBrush x:Key="ScrollBarTrackBrush" Color="#91D5D5D5"/>
+            <SolidColorBrush x:Key="ScrollBarGlyphArrowBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="MouseScrollBarShadowBrush" Color="#7F555555"/>
+            <SolidColorBrush x:Key="ScrollBarPressedBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ScrollBarMouseOverFillBrush" Color="#F4FFFFFF"/>
+            <SolidColorBrush x:Key="ScrollBarMouseOverStrokeBrush" Color="#D6A6A6A6"/>
+            <SolidColorBrush x:Key="ScrollBarArrowPressedBrush" Color="White"/>
+            <SolidColorBrush x:Key="SelectMouseOverBrush" Color="#FFDEDEDE"/>
+            <SolidColorBrush x:Key="ListViewItemMouseOverBrush" Color="#FFDEDEDE" />
+            <SolidColorBrush x:Key="ListViewItemPlaceholderRectBrush" Color="#FF3D3D3D" />
+            <SolidColorBrush x:Key="ListViewItemSemiTransparentHighlightBrush" Color="#9926A0DA" />
+            <SolidColorBrush x:Key="ListViewItemVeryTransparentHighlightBrush" Color="#7F26A0DA" />
+            <SolidColorBrush x:Key="ListViewItemSelectedMouseOverBrush" Color="#FF5AB7E3" />
+            <SolidColorBrush x:Key="ControlHeaderBrush" Color="#CCFFFFFF"/>
+            <SolidColorBrush x:Key="ListBoxItemMouseOverBrush" Color="#FFDEDEDE"/>
+            <SolidColorBrush x:Key="ListBoxItemHighlightBrush" Color="#FF26A0DA"/>
+            <SolidColorBrush x:Key="ListBoxItemPressedBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="LBDisabledBorderBrush" Color="#7CFFFFFF"/>
+            <SolidColorBrush x:Key="LBDisabledBackgroundBrush" Color="Transparent"/>
+            <SolidColorBrush x:Key="LBFocusedBackgroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="LBNormalBackgroundBrush" Color="#CCFFFFFF"/>
+            <SolidColorBrush x:Key="LBDisabledFontBrush" Color="#7CFFFFFF"/>
+            <SolidColorBrush x:Key="ScrollBarGlyphArrowPressedBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="ScrollBarButtonPressedBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ScrollBarThumbFillBrush" Color="#DEC8C8C8"/>
+            <SolidColorBrush x:Key="ScrollBarThumbBorderBrush" Color="#80555555"/>
+            <SolidColorBrush x:Key="ScrollBarThumbMouseOverFillBrush" Color="#E5DBDBDB"/>
+            <SolidColorBrush x:Key="ScrollBarThumbMouseOverBorderBrush" Color="#9E969696"/>
+            <SolidColorBrush x:Key="ScrollBarThumbPressedFillBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ScrollBarThumbPressedBorderBrush" Color="#91D5D5D5"/>
+            <SolidColorBrush x:Key="ScrollBarButtonMouseOverFillBrush" Color="#F6DBDBDB"/>
+            <SolidColorBrush x:Key="ScrollBarButtonMouseOverBorderBrush" Color="#D6A6A6A6"/>
+            <SolidColorBrush x:Key="ScrollBarButtonPressedFillBrush" Color="#FF212121"/>
+            <SolidColorBrush x:Key="ScrollBarButtonPressedBorderBrush" Color="#91D5D5D5"/>
+
+            <!--Brushes defined here are Light theme specific and are only found in generic.xaml-->
+            <SolidColorBrush x:Key="LightControlBorderBrush" Color="#44000000"/>
+            <SolidColorBrush x:Key="LightPopUpBorderBrush" Color="#A3000000"/>
+            <SolidColorBrush x:Key="LightComboBoxDisabledBrush" Color="#7CCACACA"/>
+            <SolidColorBrush x:Key="LightComboBoxDisabledBorderBrush" Color="#26000000"/>
+            <SolidColorBrush x:Key="ToggleSwitchKnobFillBrush" Color="Black"/>
+
+            <Style x:Key="Common_Circle_Big_ButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontFamily" Value="Microsoft Yahei"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused"/>
+                                        <VisualState x:Name="PointerFocused"/>
+                                    </VisualStateGroup>
+
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#6BD1BD" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#296862" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                                <PointerDownThemeAnimation TargetName="border"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#00A99B" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid x:Name="border">
+                                    <Ellipse x:Name="NormalGlyph" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="#00A99B" StrokeThickness="0"/>
+                                    <Image x:Name="NormalImage" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" 
+                                           Stretch="UniformToFill" Source="{TemplateBinding Content}"
+                                           Visibility="Visible" Margin="0,0,0,0"/>
+                                </Grid>
+                                <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Common_Circle_ButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontFamily" Value="Microsoft Yahei"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused"/>
+                                        <VisualState x:Name="PointerFocused"/>
+                                    </VisualStateGroup>
+
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#B280d3cd" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#cc00756d" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                                <PointerDownThemeAnimation TargetName="border"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.0" To="#B200A99D" 
+                                                        Storyboard.TargetProperty="(Control.Fill).(SolidColorBrush.Color)" 
+                                                        Storyboard.TargetName="NormalGlyph"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid x:Name="border">
+                                    <Ellipse x:Name="NormalGlyph" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="#B200A79B" StrokeThickness="0"/>
+                                    <Image x:Name="NormalImage" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" 
+                                           Stretch="None" Source="{TemplateBinding Content}"
+                                           Visibility="Visible" Margin="0,0,0,0"/>
+                                </Grid>
+                                <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SettingButtonStyle" TargetType="Button">
+                <Setter Property="MinWidth" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid x:Name="RootGrid">
+                                <Grid Margin="0" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                    <Path x:Name="NormalGlyph" Data="F1M0,0C0,33.138,26.862,60,60,60L60,0z" Fill="#4c4c4c"
+                                          Stretch="Fill"  UseLayoutRounding="False"/>
+                                    <Image Width="50" Height="50" Source="{TemplateBinding Content}"/>
+                                    <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                                       StrokeEndLineCap="Square" StrokeDashArray="1,1" Opacity="0" StrokeDashOffset="1.5"/>
+                                    <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                                        StrokeEndLineCap="Square" StrokeDashArray="1,1" Opacity="0" StrokeDashOffset="0.5"/>
+                                </Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Fill">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="#797979"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Fill">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="#1b1b1b"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualWhite"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                                <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualBlack"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused" />
+                                        <VisualState x:Name="PointerFocused" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--GridView的样式-->
+            <Style x:Key="GridViewStyle" TargetType="GridView">
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+                <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled"/>
+                <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False"/>
+                <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+                <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False"/>
+                <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+                <Setter Property="IsSwipeEnabled" Value="False"/>
+                <Setter Property="ItemContainerTransitions">
+                    <Setter.Value>
+                        <TransitionCollection>
+                            <AddDeleteThemeTransition/>
+                        </TransitionCollection>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GridView">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                    <ItemsPresenter IsTapEnabled="True" HeaderTemplate="{TemplateBinding HeaderTemplate}" Header="{TemplateBinding Header}" HeaderTransitions="{TemplateBinding HeaderTransitions}" Padding="{TemplateBinding Padding}"/>
+                                </StackPanel>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="EmptyGridViewItemStyle" TargetType="GridViewItem">
+                <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="TabNavigation" Value="Local"/>
+                <Setter Property="IsHoldingEnabled" Value="False"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GridViewItem">
+                            <Border x:Name="OuterContainer">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOverPressed">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard/>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused"/>
+                                        <VisualState x:Name="PointerFocused"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="SelectionHintStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.65" To="NoSelectionHint"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="VerticalSelectionHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="HorizontalSelectionHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="NoSelectionHint"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="SelectionStates">
+                                        <VisualState x:Name="UnselectedSwiping">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Selecting">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="SelectedSwiping">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Unselecting">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="Unselected">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="SelectedUnfocused">
+                                            <Storyboard/>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="DragStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.2" To="NotDragging"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="NotDragging"/>
+                                        <VisualState x:Name="Dragging">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="DraggingTarget">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="MultipleDraggingPrimary">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="MultipleDraggingSecondary">
+                                            <Storyboard>
+                                                <FadeOutThemeAnimation TargetName="ContentContainer"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="ReorderHintStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.2" To="NoReorderHint"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="NoReorderHint"/>
+                                        <VisualState x:Name="BottomReorderHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="TopReorderHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="RightReorderHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                        <VisualState x:Name="LeftReorderHint">
+                                            <Storyboard/>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="DataVirtualizationStates">
+                                        <VisualState x:Name="DataAvailable"/>
+                                        <VisualState x:Name="DataPlaceholder">
+                                            <Storyboard/>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid x:Name="ReorderHintContent" Background="Transparent">
+                                    <Border x:Name="ContentContainer">
+                                        <ContentPresenter x:Name="contentPresenter" ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" 
+                                       StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                    <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" 
+                                       StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Common_Default_ButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontFamily" Value="Microsoft Yahei"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <PointerDownThemeAnimation TargetName="Border"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused"/>
+                                        <VisualState x:Name="PointerFocused"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Margin="0">
+                                    <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                              Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Button" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="{StaticResource ControlNormalStrokeBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ControlForegroundBrush}"/>
+                <Setter Property="BorderThickness" Value="{StaticResource ControlBorderThickness}"/>
+                <Setter Property="FontFamily" Value="{StaticResource ContentFontFamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource ContentFontSize}"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="/RenRenWin8Radio;component/Resources/Icon/heart.png" Width="28" Margin="0,5,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="/RenRenWin8Radio;component/Resources/Icon/heart_empty.png" Margin="0,5,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--圆形按钮-->
+            <!--喜欢按钮样式-->
+            <Style x:Key="LikeButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/heart.png" Width="28" Margin="0,5,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/heart_empty.png" Margin="0,5,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--不喜欢按钮样式-->
+            <Style x:Key="NoLikeButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="Red"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/heart.png" Width="28" Margin="0,5,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/heart_empty.png" Margin="0,5,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--分享的按钮样式-->
+            <Style x:Key="ShareButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/star_fav.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/star_fav_empty.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--单曲向前按钮样式-->
+            <Style x:Key="PlayBackNextButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/playback_next.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/playback_next.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--单曲向后按钮样式-->
+            <Style x:Key="PlayBackPrevButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/playback_prev.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/playback_prev.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--方形按钮-->
+            <!--喜欢按钮样式-->
+            <Style x:Key="LikeRButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/heart.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/heart_empty.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--不喜欢按钮样式-->
+            <Style x:Key="NoLikeRButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="Red"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/heart.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/heart_empty.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--分享的按钮样式-->
+            <Style x:Key="ShareRButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/star_fav.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/star_fav_empty.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--单曲向前按钮样式-->
+            <Style x:Key="PlayBackNextRButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/playback_next.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/playback_next.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--单曲向后按钮样式-->
+            <Style x:Key="PlayBackPrevRButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Height="28" Source="../Resources/Icon/playback_prev.png" Width="28" Margin="0,0,0,0"/>
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image1" Width="28" Height="28" Source="../Resources/Icon/playback_prev.png" Margin="0,0,0,0" Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--登陆按钮-->
+            <Style x:Key="HomeButtonImageStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Image Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Source="../Resources/Icon/user.png" Margin="0,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--回家按钮-->
+            <Style x:Key="GoHomeButtonImageStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Image Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Source="../Resources/Icon/home.png" Margin="0,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--关闭按钮-->
+            <Style x:Key="CloseButtonImageStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="Padding" Value="10,3,10,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Image Height="80" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="image" Source="../Resources/Icon/Power.png" Margin="0,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--音乐列表按钮样式-->
+            <Style x:Key="MatCheckBoxStyle" TargetType="CheckBox" >
+                <Setter Property="Foreground" Value="#FF212121"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14.667"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="VerticalContentAlignment" Value="Top"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#B3B6B6B6"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="MinHeight" Value="50"/>
+                <Setter Property="MinWidth" Value="100"/>
+                <Setter Property="Padding" Value="5,4,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <Grid VerticalAlignment="{TemplateBinding VerticalAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipseC">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed"/>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualState x:Name="Checked">
+
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="180"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused"/>
+                                        <VisualState x:Name="Unfocused"/>
+                                        <VisualState x:Name="PointerFocused"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="ValidationStates">
+                                        <VisualState x:Name="Valid"/>
+                                        <VisualState x:Name="InvalidUnfocused"/>
+                                        <VisualState x:Name="InvalidFocused"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Rectangle x:Name="ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" StrokeThickness="1" Stroke="Black">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF100F0F" Offset="1"/>
+                                                <GradientStop Color="#FF474444"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="ellipseC" HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="58" Fill="White" Opacity="0.1" Visibility="Collapsed"/>
+                                    <Path x:Name="path" Data="M40,80 L0,119 L41,161" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Stretch="Fill" Width="20" RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <CompositeTransform/>
+                                        </Path.RenderTransform>
+                                        <Path.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF212121" Offset="1"/>
+                                                <GradientStop Color="#FFC4C4C4"/>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path>
+                                    <ContentPresenter x:Name="contentPresenter" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

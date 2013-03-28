@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DD94E07-ADE2-4D24-9668-6F39940A677D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RenRenWin83GSdk</RootNamespace>
+    <AssemblyName>RenRenWin83GSdk</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="API.cs" />
+    <Compile Include="Constants\ConstantValue.cs" />
+    <Compile Include="Constants\Method.cs" />
+    <Compile Include="CustomEventArgs\RenRenResponseArg.cs" />
+    <Compile Include="Entity\AcceptFriendEntity.cs" />
+    <Compile Include="Entity\AlbumEntity.cs" />
+    <Compile Include="Entity\AlbumListEntity.cs" />
+    <Compile Include="Entity\AttachmentEntity.cs" />
+    <Compile Include="Entity\BirthdayEntity.cs" />
+    <Compile Include="Entity\BlogCommentEntity.cs" />
+    <Compile Include="Entity\BlogDetailEntity.cs" />
+    <Compile Include="Entity\BlogEntity.cs" />
+    <Compile Include="Entity\BlogListEntity.cs" />
+    <Compile Include="Entity\ClientUpdateInfoEntity.cs" />
+    <Compile Include="Entity\CommentEntity.cs" />
+    <Compile Include="Entity\CommentReultEntity.cs" />
+    <Compile Include="Entity\CommonFriendsEntity.cs" />
+    <Compile Include="Entity\DenyFriendEntity.cs" />
+    <Compile Include="Entity\ErrorEntity.cs" />
+    <Compile Include="Entity\FeedEntity.cs" />
+    <Compile Include="Entity\FeedListEntity.cs" />
+    <Compile Include="Entity\ForwardStatusEntity.cs" />
+    <Compile Include="Entity\FriendEntity.cs" />
+    <Compile Include="Entity\FriendListEntity.cs" />
+    <Compile Include="Entity\GetHomeEntity.cs" />
+    <Compile Include="Entity\GossipEntity.cs" />
+    <Compile Include="Entity\GossipListEntity.cs" />
+    <Compile Include="Entity\IsFriendEntity.cs" />
+    <Compile Include="Entity\IsFriendResultEntity.cs" />
+    <Compile Include="Entity\LoginEntity.cs" />
+    <Compile Include="Entity\MessageEntity.cs" />
+    <Compile Include="Entity\MessageListEntity.cs" />
+    <Compile Include="Entity\NewsCountEntity.cs" />
+    <Compile Include="Entity\NewsEntity.cs" />
+    <Compile Include="Entity\NewsListEntity.cs" />
+    <Compile Include="Entity\PhotoCommentEntity.cs" />
+    <Compile Include="Entity\PhotoEntity.cs" />
+    <Compile Include="Entity\PhotoListEntity.cs" />
+    <Compile Include="Entity\PostBlogEntity.cs" />
+    <Compile Include="Entity\RadioEntity.cs" />
+    <Compile Include="Entity\RadioUserEntity.cs" />
+    <Compile Include="Entity\RequestFriendsListEntity.cs" />
+    <Compile Include="Entity\RequestParameterEntity.cs" />
+    <Compile Include="Entity\RequestUserEntity.cs" />
+    <Compile Include="Entity\SetStatusEntity.cs" />
+    <Compile Include="Entity\ShareCommentEntity.cs" />
+    <Compile Include="Entity\ShareEntity.cs" />
+    <Compile Include="Entity\ShareListEntity.cs" />
+    <Compile Include="Entity\SongEntity.cs" />
+    <Compile Include="Entity\SongListEntity.cs" />
+    <Compile Include="Entity\StatusCommentsEntity.cs" />
+    <Compile Include="Entity\StatusEntity.cs" />
+    <Compile Include="Entity\StatusListEntity.cs" />
+    <Compile Include="Entity\UploadPhotoEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Entity\UserInfoEntity.cs" />
+    <Compile Include="Entity\VisitorsEntity.cs" />
+    <Compile Include="Entity\VisitorUserEntity.cs" />
+    <Compile Include="Helper\ApiHelper.cs" />
+    <Compile Include="Helper\DESUtils.cs" />
+    <Compile Include="Helper\JsonUtility.cs" />
+    <Compile Include="Helper\MD5Core.cs" />
+    <Compile Include="Helper\ParameterComparer.cs" />
+    <Compile Include="Model\PropertyChangedBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Radio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HttpWebRequestLibrary\HttpWebRequestLibrary.csproj">
+      <Project>{05f8a92e-2469-42b8-804e-88783c17adfa}</Project>
+      <Name>HttpWebRequestLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExtenalBin\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

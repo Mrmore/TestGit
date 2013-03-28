@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="3400PnFWorkshop.10062F39A9198" Publisher="CN=069B3F45-97FC-46D2-A5E8-11F828A9678E" Version="1.0.0.3" />
+  <Properties>
+    <DisplayName>留声电台</DisplayName>
+    <PublisherDisplayName>PnFWorkshop</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="RenrenWin8RadioUI.App">
+      <VisualElements DisplayName="留声电台" Logo="Assets\Logo.png" SmallLogo="Assets\留声fm-30x30.png" Description="留声电台" ForegroundText="dark" BackgroundColor="#FFFFFF" ToastCapable="true">
+        <LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\留声fm-310x150.png" ShortName="留声电台" />
+        <SplashScreen Image="Assets\电台logo-620×300.png" BackgroundColor="#FFFFFF" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.LockScreenBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+            <Task Type="systemEvent" />
+            <Task Type="audio" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="mp3">
+            <SupportedFileTypes>
+              <FileType>.mp3</FileType>
+              <FileType>.mp4</FileType>
+              <FileType>.wma</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.search" />
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.UnLockScreenBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+            <Task Type="systemEvent" />
+            <Task Type="audio" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="picturesLibrary" />
+    <Capability Name="musicLibrary" />
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
