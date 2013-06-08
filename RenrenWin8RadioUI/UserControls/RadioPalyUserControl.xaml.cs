@@ -164,8 +164,11 @@ namespace RenrenWin8RadioUI.UserControls
                 }
             }
 
-            //删除系统本地文件夹的myFolder文件夹及其子文件夹
-            DelectLocalFolder();
+            if (isDeleteLocalFolder)
+            {
+                //删除系统本地文件夹的myFolder文件夹及其子文件夹
+                DelectLocalFolder();
+            }
         }
 
         //注册锁屏和解锁
