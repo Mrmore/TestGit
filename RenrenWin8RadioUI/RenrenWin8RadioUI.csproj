@@ -200,9 +200,6 @@
       <DependentUpon>SearchResultsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Contracts\Share\Source\ShareSourceWrapper.cs" />
-    <Compile Include="View\RadioPage.xaml.cs">
-      <DependentUpon>RadioPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -403,10 +400,6 @@
     <Page Include="View\Contracts\SearchResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RadioPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
