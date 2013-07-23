@@ -85,7 +85,7 @@ namespace RenrenWin8RadioUI.UserControls
 
             //LockScreen();
 
-            Windows.UI.ApplicationSettings.SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView(); ;
+            Windows.UI.ApplicationSettings.SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
             settingsPane.CommandsRequested += settingsPane_CommandsRequested;
             Windows.ApplicationModel.Search.SearchPane searchPane = Windows.ApplicationModel.Search.SearchPane.GetForCurrentView();
             searchPane.VisibilityChanged += searchPane_VisibilityChanged;
