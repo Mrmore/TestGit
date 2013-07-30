@@ -279,7 +279,7 @@
             <Grid Grid.Row="1">
                 <!--IsScrubbingEnabled 控制能拖动时间线  IsInteractive 自动出现  AutoHide 自动隐藏-->
                 <PlayerFramework:MediaPlayer x:Name="mediaPlayer" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                                             AutoPlay="true" Margin="8,0,0,0" AutoHide="False" Background="Transparent"
+                                             AutoPlay="True" Margin="8,0,0,0" AutoHide="False" Background="Transparent"
                                              IsTimelineVisible="True" IsTimeRemainingVisible="True" 
                                              IsTimeElapsedVisible="False" Visibility="Visible" IsScrubbingEnabled="False"
                                              IsInteractive="True"/>
