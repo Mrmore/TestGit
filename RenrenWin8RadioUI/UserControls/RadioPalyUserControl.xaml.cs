@@ -841,8 +841,6 @@ namespace RenrenWin8RadioUI.UserControls
             {
 
             }
-
-
         }
 
         /// <summary>
