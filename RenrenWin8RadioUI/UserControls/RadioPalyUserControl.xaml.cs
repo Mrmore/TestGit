@@ -829,7 +829,7 @@ namespace RenrenWin8RadioUI.UserControls
             mediaPlayer.Position = new TimeSpan(0);
             mediaPlayer.Source = new Uri(RadioHomeViewModel.UriDecode(song.Source, LoginViewModel.Instance.HasLogin), UriKind.Absolute);
             mediaPlayer.Play();
-            MediaProtectionManager protectionManager = mediaPlayer.ProtectionManager;
+            //MediaProtectionManager protectionManager = mediaPlayer.ProtectionManager;
             MediaControl.TrackName = song.Name;
             MediaControl.ArtistName = song.ArtistName;
             try
