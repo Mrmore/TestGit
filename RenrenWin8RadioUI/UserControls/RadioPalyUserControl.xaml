@@ -311,7 +311,7 @@
                           Style="{StaticResource LyricListViewStyle}" RenderTransformOrigin="0.5,0.5">
                 </ListView>-->
                 
-                <ScrollViewer x:Name="LyricScrollViewer" Margin="0,70,0,0" ZoomMode="Disabled"
+                <ScrollViewer x:Name="LyricScrollViewer" Margin="0,70,0,0" ZoomMode="Disabled" Background="Transparent"
                             HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
                             VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" >
                     <StackPanel x:Name="LyricPanel" Margin="25,0,25,0" Orientation="Vertical" VerticalAlignment="Stretch">
