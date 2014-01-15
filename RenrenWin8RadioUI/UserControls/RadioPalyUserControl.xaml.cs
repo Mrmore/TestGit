@@ -837,9 +837,9 @@ namespace RenrenWin8RadioUI.UserControls
                 Uri localUri = await GetlocalUri(song.AlbumImg);
                 MediaControl.AlbumArt = localUri;
             }
-            catch
+            catch(Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
         }
 
